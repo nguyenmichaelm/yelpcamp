@@ -187,7 +187,9 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-//route to connect to local port
-app.listen(3000, () => {
-  console.log("Listening to port: 3000");
+//route to connect to port
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Listening to port: ${port}`);
 })
