@@ -4,9 +4,9 @@ const Campground = require("./models/campground");
 const Review = require("./models/review");
 
 
-module.exports.isLoggedIn = (req, res, next) => { 
+module.exports.isLoggedIn = (req, res, next) => {
   if (!req.isAuthenticated()) { //isAuthenticated is given from passport
-    req.session.returnTo = req.originalUrl; 
+    req.session.returnTo = req.originalUrl;
     req.flash("error", "You must be signed in first!");
     return res.redirect("/login");
   }
